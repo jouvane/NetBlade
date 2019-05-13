@@ -1,4 +1,13 @@
 # Starter pipeline
+- task: MSBuild@1
+  inputs:
+    solution: '- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/*.sln'
+    feedsToUse: 'select'
+    versioningScheme: 'off''
+    msbuildArchitecture: 'x64'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
