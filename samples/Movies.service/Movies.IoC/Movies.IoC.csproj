@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
+    <PackageReference Include="NetBlade.CrossCutting.MediatR" Version="1.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Movies.Application.Abstraction\Movies.Application.Abstraction.csproj" />
+    <ProjectReference Include="..\Movies.Application\Movies.Application.csproj" />
+    <ProjectReference Include="..\Movies.CrossCutting\Movies.CrossCutting.csproj" />
+    <ProjectReference Include="..\Movies.Domain\Movies.Domain.csproj" />
+    <ProjectReference Include="..\Movies.Infrastructure.Repository\Movies.Infrastructure.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

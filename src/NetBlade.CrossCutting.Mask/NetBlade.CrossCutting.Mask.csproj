@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NetBlade.CrossCutting.Helpers\NetBlade.CrossCutting.Helpers.csproj" />
+  </ItemGroup>
+
+</Project>

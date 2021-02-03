@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NetBlade.Core.Domain\NetBlade.Core.Domain.csproj" />
+    <ProjectReference Include="..\NetBlade.Core.Events\NetBlade.Core.Events.csproj" />
+    <ProjectReference Include="..\NetBlade.Core.Mediator\NetBlade.Core.Mediator.csproj" />
+  </ItemGroup>
+
+</Project>

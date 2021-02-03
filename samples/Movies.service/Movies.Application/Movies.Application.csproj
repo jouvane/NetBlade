@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="NetBlade.Core.Querys" Version="1.0.2" />
+    <PackageReference Include="NetBlade.Core.Security" Version="1.0.2" />
+    <PackageReference Include="NetBlade.CrossCutting.MediatR" Version="1.0.2" />
+    <PackageReference Include="NetBlade.Data.Pagination" Version="1.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Movies.Application.Abstraction\Movies.Application.Abstraction.csproj" />
+    <ProjectReference Include="..\Movies.Domain\Movies.Domain.csproj" />
+  </ItemGroup>
+</Project>

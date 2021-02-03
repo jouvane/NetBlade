@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HangFire" Version="1.7.19" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.19" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.7.19" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NetBlade.Scheduling\NetBlade.Scheduling.csproj" />
+  </ItemGroup>
+
+</Project>
