@@ -1,6 +1,5 @@
-﻿using NetBlade.Core.Pagination;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.EntityFrameworkCore;
+using NetBlade.Core.Pagination;
 using System;
 using System.Collections.Generic;
 using System.Linq;

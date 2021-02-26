@@ -1,5 +1,4 @@
 using AutoMapper;
-using Inmetro.Data.Pagination;
 
 namespace Movies.Application.Mapping
 {

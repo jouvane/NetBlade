@@ -1,5 +1,4 @@
 using AutoMapper;
-using Elasticsearch.Net;
 
 namespace Movies.API.Mapping
 {

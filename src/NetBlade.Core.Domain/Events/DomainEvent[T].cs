@@ -1,6 +1,5 @@
 ﻿using NetBlade.Core.Domain;
 using NetBlade.Core.Enum;
-using System;
 
 namespace NetBlade.Core.Events
 {

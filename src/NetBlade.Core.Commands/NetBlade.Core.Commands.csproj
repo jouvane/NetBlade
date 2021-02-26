@@ -1,11 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <PackageId>NetBlade.Core.Commands</PackageId>
+    <Authors>jouvane</Authors>
+    <RepositoryUrl>https://github.com/jouvane/NetBlade</RepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Version)' == '' ">
+    <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">0.0.1</VersionPrefix>
+    <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
+    <Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="9.5.0" />
+    <PackageReference Include="FluentValidation" Version="9.5.1" />
   </ItemGroup>
 
   <ItemGroup>

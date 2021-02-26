@@ -1,15 +1,13 @@
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Threading.Tasks;
-using Xunit;
-using System.Linq;
 using Moq;
+using System;
+using System.Linq;
 
 namespace Movies.Tests.UnitTest
 {
     public static class ServiceMovieslectionExtensions
     {
-        public static IServiceMovieslection RemoveAndAddMock<T>(this IServiceMovieslection services, Func<IServiceProvider, object[]> func = null)
+        public static IServiceCollection RemoveAndAddMock<T>(this IServiceCollection services, Func<IServiceProvider, object[]> func = null)
             where T : class
         {
             var serviceDescriptor = services.FirstOrDefault(descriptor => descriptor.ServiceType == typeof(T));

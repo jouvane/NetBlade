@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -6,9 +6,10 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
-    <PackageReference Include="NetBlade.Core.Domain" Version="1.0.2" />
-    <PackageReference Include="NetBlade.Core.Services" Version="1.0.2" />
-    <PackageReference Include="NetBlade.Data" Version="1.0.2" />
+    <PackageReference Include="NetBlade.Core" Version="0.0.2" />
+    <PackageReference Include="NetBlade.Core.Domain" Version="0.0.2" />
+    <PackageReference Include="NetBlade.Core.Services" Version="0.0.2" />
+    <PackageReference Include="NetBlade.Data" Version="0.0.2" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
   </ItemGroup>
 

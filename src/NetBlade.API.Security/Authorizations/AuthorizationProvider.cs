@@ -21,8 +21,7 @@ namespace NetBlade.API.Security.Authorizations
 
         public virtual Task<string[]> GetRoles()
         {
-            StringValues rolesToken;
-            if (this._httpContextAccessor?.HttpContext?.Request?.Headers?.TryGetValue("Roles", out rolesToken) ?? false && !string.IsNullOrEmpty(rolesToken))
+            if (this._httpContextAccessor?.HttpContext?.Request?.Headers?.TryGetValue("Roles", out StringValues rolesToken) ?? false && !string.IsNullOrEmpty(rolesToken))
             {
                 ClaimsPrincipal claims = null;//TODO: ajustar probelama. this._jwtSecurityTokenManager.GetClaimsPrincipal(rolesToken);
                 return Task.FromResult(claims?.FindAll(f => ClaimTypes.Role.Equals(f.Type))?.Select(s => s.Value)?.ToArray() ?? Array.Empty<string>());

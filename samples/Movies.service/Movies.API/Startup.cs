@@ -1,7 +1,4 @@
 using Elastic.Apm.NetCoreAll;
-using NetBlade.API.Security;
-using NetBlade.API.Security.Options;
-using NetBlade.API.Security.SwaggerGens;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -11,27 +8,30 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using Serilog;
-using Serilog.Enrichers.AspNetCore;
 using Movies.API.Filters;
 using Movies.CrossCutting.Comum;
 using Movies.IoC;
+using NetBlade.API.Security;
+using NetBlade.API.Security.Options;
+using NetBlade.API.Security.SwaggerGens;
+using Serilog;
+using Serilog.Enrichers.AspNetCore;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System;
-using System.Movieslections.Generic;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.Security.Claims;
 using System.Reflection;
+using System.Security.Claims;
 
 namespace Movies.API
 {
     [ExcludeFromCodeCoverage]
     public class Startup
     {
-        internal readonly static FileVersionInfo _fileVersionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
+        internal static readonly FileVersionInfo _fileVersionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
 
         public Startup(IConfiguration configuration)
         {
@@ -102,13 +102,13 @@ namespace Movies.API
                 .UseEndpoints(endpoints => endpoints.MapControllers());
         }
 
-        public void ConfigureServices(IServiceMovieslection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             services
                 .AddHttpContextMiddleware();
 
             services
-                .AddSecurity(this.Configuration, fnClaimsAdditional: (s, c) => new Claim[0]);
+                .AddSecurity(this.Configuration, fnClaimsAdditional: (s, c) => Array.Empty<Claim>());
 
             services
                 .AddMemoryCache()

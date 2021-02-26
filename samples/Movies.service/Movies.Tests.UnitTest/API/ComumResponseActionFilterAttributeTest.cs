@@ -1,17 +1,15 @@
 using FluentValidation.Results;
-using Inmetro.Core.Commands;
-using Inmetro.Core.Querys;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using Movies.API.Filters;
 using Movies.CrossCutting.Comum;
+using NetBlade.Core.Exceptions;
+using NetBlade.Core.Querys;
 using System;
-using System.Movieslections.Generic;
-using System.Text;
+using System.Collections.Generic;
 using Xunit;
-using Inmetro.Core.Exceptions;
 
 namespace Movies.Tests.UnitTest.API
 {
@@ -77,7 +75,7 @@ namespace Movies.Tests.UnitTest.API
 
         public class Startup : StartupBase
         {
-            public override IServiceMovieslection OnConfigureServices(IServiceMovieslection services)
+            public override IServiceCollection OnConfigureServices(IServiceCollection services)
             {
                 return services
                     .AddScoped<ComumResponseActionFilterAttribute>()

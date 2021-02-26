@@ -14,7 +14,7 @@ namespace NetBlade.Data.EF
         private IDbContextTransaction _contextTransaction;
         private bool _readOnly;
         private bool _started;
-        private int id = 0;
+        private readonly int id = 0;
 
         public TransactionManagerEF(DbContext context, IConnectionManager connection)
         {
@@ -24,14 +24,20 @@ namespace NetBlade.Data.EF
             this.id = TransactionManagerEF.count;
         }
 
-        public IDbConnection Connection =>
-            this._context.Database.CurrentTransaction?.GetDbTransaction()?.Connection ?? this._connection.Open();
+        public IDbConnection Connection
+        {
+            get => this._context.Database.CurrentTransaction?.GetDbTransaction()?.Connection ?? this._connection.Open();
+        }
 
-        public virtual bool Started =>
-            this._started;
+        public virtual bool Started
+        {
+            get => this._started;
+        }
 
-        public IDbTransaction Transaction =>
-            this._context.Database.CurrentTransaction.GetDbTransaction();
+        public IDbTransaction Transaction
+        {
+            get => this._context.Database.CurrentTransaction.GetDbTransaction();
+        }
 
         public virtual void Begin(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted)
         {
@@ -71,7 +77,9 @@ namespace NetBlade.Data.EF
             }
         }
 
-        public void SetTransaction(IDbTransaction transaction) =>
+        public void SetTransaction(IDbTransaction transaction)
+        {
             throw new NotImplementedException();
+        }
     }
 }

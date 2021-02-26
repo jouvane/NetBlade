@@ -4,7 +4,7 @@ namespace Movies.Domain
 {
     public static class Bootstrapper
     {
-        public static IServiceMovieslection AddBootstrapperDomain(this IServiceMovieslection services)
+        public static IServiceCollection AddBootstrapperDomain(this IServiceCollection services)
         {
             return services
               //.AddScoped<Service>()

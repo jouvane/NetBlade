@@ -1,5 +1,4 @@
 using FluentMigrator;
-using FluentMigrator.Builders.Create.Table;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Movies.Infrastructure.Migrations

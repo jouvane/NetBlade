@@ -1,7 +1,4 @@
-using AutoMapper;
 using FluentValidation.Results;
-using NetBlade.Core;
-using NetBlade.Core.Exceptions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,9 +6,10 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Movies.CrossCutting.Comum;
+using NetBlade.Core;
+using NetBlade.Core.Exceptions;
 using System;
-using System.Movieslections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -77,7 +75,7 @@ namespace Movies.API.Filters
                 }
                 else if (exception is ValidationResultDomainException exValidationResultDomainException)
                 {
-                    foreach (var item in exValidationResultDomainException.Validations)
+                    foreach (ValidationFailure item in exValidationResultDomainException.Validations)
                     {
                         item.AttemptedValue = null;
                         item.FormattedMessagePlaceholderValues = null;
@@ -130,7 +128,7 @@ namespace Movies.API.Filters
         private Exception GetDomainExceptionByAggregateException(AggregateException aggEx)
         {
             Exception ex = null;
-            if (aggEx.InnerExceptions.Count() == 1)
+            if (aggEx.InnerExceptions.Count == 1)
             {
                 if (aggEx.InnerExceptions[0] is AggregateException)
                 {

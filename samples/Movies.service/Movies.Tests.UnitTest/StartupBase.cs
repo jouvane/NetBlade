@@ -1,19 +1,18 @@
-using NetBlade.CrossCutting.MediatR;
+using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Serilog;
-using Movies.Domain;
-using Movies.Application;
-using Movies.IoC;
-using System;
-using System.Threading.Tasks;
-using System.Linq;
-using System.Diagnostics.CodeAnalysis;
-using AutoMapper;
-using System.Movieslections.Generic;
-using System.Reflection;
-using NetBlade.Core.Transaction;
 using Moq;
+using Movies.Application;
+using Movies.Domain;
+using Movies.IoC;
+using NetBlade.Core.Transaction;
+using NetBlade.CrossCutting.MediatR;
+using Serilog;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Reflection;
 
 namespace Movies.Tests.UnitTest
 {
@@ -21,7 +20,7 @@ namespace Movies.Tests.UnitTest
     {
         public StartupBase()
         {
-            ServiceMovieslection serviceMovieslection = new ServiceMovieslection();
+            ServiceCollection serviceMovieslection = new ServiceCollection();
             this.ConfigureServices(serviceMovieslection);
             this.ServiceProvider = serviceMovieslection.BuildServiceProvider();
         }
@@ -30,7 +29,7 @@ namespace Movies.Tests.UnitTest
 
         public ServiceProvider ServiceProvider { get; }
 
-        public void ConfigureServices(IServiceMovieslection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json", true, true);
             this.Configuration = builder.Build();
@@ -67,7 +66,7 @@ namespace Movies.Tests.UnitTest
         }
 
         [ExcludeFromCodeCoverage]
-        public virtual IServiceMovieslection OnConfigureServices(IServiceMovieslection services)
+        public virtual IServiceCollection OnConfigureServices(IServiceCollection services)
         {
             return services;
         }

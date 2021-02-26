@@ -1,29 +1,20 @@
-using Inmetro.Core.Commands;
-using Inmetro.Core.Events;
-using Inmetro.Core.Querys;
-using Inmetro.CrossCutting.MediatR;
-using Inmetro.Data.Pagination;
 using Microsoft.Extensions.DependencyInjection;
-using System.Movieslections.Generic;
 
 namespace Movies.Application
 {
     public static class Bootstrapper
     {
-        public static IServiceMovieslection AddBootstrapperApplication(this IServiceMovieslection services)
+        public static IServiceCollection AddBootstrapperApplication(this IServiceCollection services)
         {
             //services
-               //.AddCommand<Command, CommandHandler, CommandResponse>()
-                ;
+            //.AddCommand<Command, CommandHandler, CommandResponse>();
 
             //services
-               //.AddQuery<Query, QueryHandler, QueryResponse<DataTransferObjectOut>>()
-               ;
+            //.AddQuery<Query, QueryHandler, QueryResponse<DataTransferObjectOut>>();
 
-         
+
             //services
-                //.AddEvent<DomainEvent, EventHandler>()
-                ;
+            //.AddEvent<DomainEvent, EventHandler>();
 
             return services;
         }

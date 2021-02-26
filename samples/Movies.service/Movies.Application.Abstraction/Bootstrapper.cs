@@ -6,7 +6,7 @@ namespace Movies.Application.Abstraction
     [ExcludeFromCodeCoverage]
     public static class Bootstrapper
     {
-        public static IServiceMovieslection AddBootstrapperApplicationAbstraction(this IServiceMovieslection services)
+        public static IServiceCollection AddBootstrapperApplicationAbstraction(this IServiceCollection services)
         {
             return services;
         }

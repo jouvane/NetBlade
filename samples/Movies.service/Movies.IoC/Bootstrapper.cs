@@ -1,6 +1,5 @@
 using AutoMapper;
 using FluentValidation;
-using Inmetro.CrossCutting.MediatR;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +10,7 @@ using Movies.Domain;
 using Movies.Infrastructure.Repository;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
+using NetBlade.CrossCutting.MediatR;
 
 namespace Movies.IoC
 {
@@ -27,7 +27,7 @@ namespace Movies.IoC
         };
 
         [ExcludeFromCodeCoverage]
-        public static IServiceMovieslection AddBootstrapperIoC(this IServiceMovieslection services, IConfiguration configuration)
+        public static IServiceCollection AddBootstrapperIoC(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddBootstrapperApplication()
                .AddBootstrapperApplicationAbstraction()
@@ -46,7 +46,7 @@ namespace Movies.IoC
             return services;
         }
 
-        public static IServiceMovieslection AddValidations(this IServiceMovieslection services)
+        public static IServiceCollection AddValidations(this IServiceCollection services)
         {
             AssemblyScanner.FindValidatorsInAssemblies(Bootstrapper.Assemblies)
                .ForEach(f =>

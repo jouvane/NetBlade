@@ -1,11 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <PackageId>NetBlade.Data.Log.Elasticsearch</PackageId>
+    <Authors>jouvane</Authors>
+    <RepositoryUrl>https://github.com/jouvane/NetBlade</RepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Version)' == '' ">
+    <VersionPrefix Condition=" '$(VersionPrefix)' == '' ">0.0.1</VersionPrefix>
+    <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
+    <Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Elasticsearch.Net" Version="7.10.1" />
+    <PackageReference Include="Elasticsearch.Net" Version="7.11.1" />
     <PackageReference Include="Serilog" Version="2.10.0" />
     <PackageReference Include="Serilog.Sinks.Elasticsearch" Version="8.4.1" />
   </ItemGroup>

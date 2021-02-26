@@ -1,7 +1,3 @@
-using System;
-using System.Movieslections.Generic;
-using System.Text;
-
 namespace Movies.CrossCutting.Comum
 {
     public class TransactionID

@@ -1,6 +1,6 @@
-﻿using NetBlade.Core.Commands;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using NetBlade.Core.Commands;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
