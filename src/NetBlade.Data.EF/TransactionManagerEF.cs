@@ -8,21 +8,32 @@ namespace NetBlade.Data.EF
 {
     public class TransactionManagerEF : ITransactionManager
     {
-        public static int count;
+        private static int count = 0;
+        private readonly IConnectionManager _connection;
         private readonly DbContext _context;
-        public int id;
         private IDbContextTransaction _contextTransaction;
         private bool _readOnly;
         private bool _started;
+        private int id = 0;
 
-        public TransactionManagerEF(DbContext context)
+        public TransactionManagerEF(DbContext context, IConnectionManager connection)
         {
+            this._connection = connection;
+            this._context = context;
             TransactionManagerEF.count++;
             this.id = TransactionManagerEF.count;
-            this._context = context;
         }
 
-        public virtual void Begin(IsolationLevel isolationLevel = IsolationLevel.Unspecified)
+        public IDbConnection Connection =>
+            this._context.Database.CurrentTransaction?.GetDbTransaction()?.Connection ?? this._connection.Open();
+
+        public virtual bool Started =>
+            this._started;
+
+        public IDbTransaction Transaction =>
+            this._context.Database.CurrentTransaction.GetDbTransaction();
+
+        public virtual void Begin(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted)
         {
             if (!this._started)
             {
@@ -38,11 +49,6 @@ namespace NetBlade.Data.EF
                 this._contextTransaction?.Commit();
                 this._started = false;
             }
-        }
-
-        public IDbConnection Connection
-        {
-            get => this.Connection;
         }
 
         public virtual void Dispose()
@@ -65,23 +71,7 @@ namespace NetBlade.Data.EF
             }
         }
 
-        public void SetTransaction(IDbTransaction transaction)
-        {
-            //RelationalTransactionFactory a;
-            //a.Create(null, transaction, Guid, logger, Owned)
-
-            //this._context.Database.UseTransaction()
+        public void SetTransaction(IDbTransaction transaction) =>
             throw new NotImplementedException();
-        }
-
-        public virtual bool Started
-        {
-            get => this._started;
-        }
-
-        public IDbTransaction Transaction
-        {
-            get => throw new NotImplementedException();
-        }
     }
 }
